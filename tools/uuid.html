@@ -1,48 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>UUID Generator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/9.0.0/uuid.min.js"></script>
+    <meta charset="UTF-8">
+    <title>UUID Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
+
+    <script type="module">
+        import { NIL as uuidNil, v1 as uuidv1, v4 as uuidv4, v5 as uuidv5 } from 'https://esm.sh/uuid';
+
+        const predefinedNamespaces = {
+            DNS: '6ba7b810-9dad-11d1-80b4-00c04fd430c8',
+            URL: '6ba7b811-9dad-11d1-80b4-00c04fd430c8',
+        };
+
+        window.generateUUID = function () {
+            const version = document.getElementById("uuid-version").value;
+            const count = parseInt(document.getElementById("uuid-count").value || "1");
+            const name = document.getElementById("v5-name")?.value || '';
+            const namespaceInput = document.getElementById("v5-namespace")?.value || '';
+            const output = [];
+
+            for (let i = 0; i < count; i++) {
+                let result = "";
+                if (version === "v1") {
+                    result = uuidv1();
+                } else if (version === "v4") {
+                    result = uuidv4();
+                } else if (version === "v5") {
+                    const ns = predefinedNamespaces[namespaceInput] || namespaceInput || uuidNil;
+                    if (!name) {
+                        result = "⚠️ Missing name for v5";
+                    } else {
+                        result = uuidv5(name + (count > 1 ? `-${i}` : ''), ns);
+                    }
+                }
+                output.push(result);
+            }
+
+            document.getElementById("uuidResult").innerText = output.join("\n");
+        };
+
+        window.toggleV5Fields = function () {
+            const version = document.getElementById("uuid-version").value;
+            const v5Fields = document.getElementById("v5-fields");
+            v5Fields.style.display = version === "v5" ? "block" : "none";
+        };
+
+        window.copyUUIDs = function () {
+            const text = document.getElementById("uuidResult").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            });
+        };
+
+        window.showToast = function () {
+            const toast = document.getElementById("toast");
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2000);
+        };
+    </script>
 </head>
 <body>
 
 <header class="navbar">
-  <div class="logo"><a href="../index.html">Yayloyan</a></div>
+    <div class="logo"><a href="../index.html">Yayloyan</a></div>
+    <nav>
+        <ul>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
-<section class="section">
-  <h2>UUID Generator</h2>
-  <label for="uuid-version">Version:</label>
-  <select id="uuid-version">
-    <option value="v4">UUID v4 (random)</option>
-    <option value="v1">UUID v1 (timestamp-based)</option>
-    <option value="v5">UUID v5 (name-based)</option>
-  </select>
-  <br><br>
-  <button class="btn" onclick="generateUUID()">Generate</button>
-  <p id="uuidResult" style="margin-top: 1rem; font-family: monospace;"></p>
-</section>
+<main class="main">
+    <section class="section">
+        <h2>UUID Generator</h2>
 
-<script>
-function generateUUID() {
-  const version = document.getElementById("uuid-version").value;
-  let result = "";
+        <label for="uuid-version">Version:</label>
+        <select id="uuid-version" onchange="toggleV5Fields()">
+            <option value="v4">UUID v4 (random)</option>
+            <option value="v1">UUID v1 (timestamp-based)</option>
+            <option value="v5">UUID v5 (name-based)</option>
+        </select>
 
-  if (version === "v1") {
-    result = uuid.v1();
-  } else if (version === "v4") {
-    result = uuid.v4();
-  } else if (version === "v5") {
-    // Using DNS namespace and fixed name
-    result = uuid.v5('yayloyan.cc', uuid.v5.DNS);
-  }
+        <br><br>
+        <label for="uuid-count">How many UUIDs to generate?</label>
+        <input type="number" id="uuid-count" value="1" min="1" max="100" style="width: 60px;">
 
-  document.getElementById("uuidResult").innerText = result;
-}
-</script>
+        <div id="v5-fields" style="display: none; margin-top: 1rem;">
+            <label for="v5-name">Name:</label><br>
+            <input type="text" id="v5-name" placeholder="Enter name (e.g. yayloyan.cc)" style="width: 100%;"><br><br>
+
+            <label for="v5-namespace">Namespace:</label><br>
+            <input type="text" id="v5-namespace" placeholder="DNS, URL, or UUID (default: NIL UUID)" style="width: 100%;">
+        </div>
+
+        <br>
+        <button class="btn" onclick="generateUUID()">Generate</button>
+        <button class="btn" onclick="copyUUIDs()">Copy to Clipboard</button>
+
+        <pre id="uuidResult" style="margin-top: 1rem; font-family: monospace; white-space: pre-wrap;"></pre>
+    </section>
+
+    <div id="toast" class="toast">Copied to clipboard!</div>
+</main>
+
+<footer class="footer">
+    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <div class="social-links">
+        <a href="https://instagram.com/er313__" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</footer>
 
 </body>
 </html>

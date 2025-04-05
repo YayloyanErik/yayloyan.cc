@@ -5,33 +5,57 @@
     <title>QR, Barcode & Data Matrix Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bwip-js/dist/bwip-js-min.js"></script>
 </head>
 <body>
+
 <header class="navbar">
     <div class="logo"><a href="../index.html">Yayloyan</a></div>
+    <nav>
+        <ul>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
-<section class="section">
-    <h2>QR / Barcode / Data Matrix Generator</h2>
 
-    <label for="qrType">Code Type:</label>
-    <select id="qrType">
-        <option value="qrcode">QR Code</option>
-        <option value="code128">Barcode (Code 128)</option>
-        <option value="code39">Barcode (Code 39)</option>
-        <option value="ean13">Barcode (EAN-13)</option>
-        <option value="ean8">Barcode (EAN-8)</option>
-        <option value="datamatrix">Data Matrix</option>
-        <option value="azteccode">Aztec Code</option>
-    </select><br><br>
+<main class="main">
+    <section class="section">
+        <h2>QR / Barcode / Data Matrix Generator</h2>
 
-    <input type="text" id="qrInput" placeholder="Enter text or number..." style="width:100%; max-width:400px;">
-    <button class="btn" onclick="generateCode()">Generate</button>
+        <label for="qrType">Code Type:</label>
+        <select id="qrType">
+            <option value="qrcode">QR Code</option>
+            <option value="code128">Barcode (Code 128)</option>
+            <option value="code39">Barcode (Code 39)</option>
+            <option value="ean13">Barcode (EAN-13)</option>
+            <option value="ean8">Barcode (EAN-8)</option>
+            <option value="datamatrix">Data Matrix</option>
+            <option value="azteccode">Aztec Code</option>
+        </select><br><br>
 
-    <br><br>
-    <canvas id="codeCanvas"></canvas>
-</section>
+        <input type="text" id="qrInput" placeholder="Enter text or number..." style="width:100%; max-width:400px;">
+        <button class="btn" onclick="generateCode()">Generate</button>
+        <button class="btn" onclick="copyQRImage()">Copy to Clipboard</button><br><br>
+
+        <canvas id="codeCanvas"></canvas>
+    </section>
+
+    <div id="toast" class="toast">Copied to clipboard!</div>
+</main>
+
+<footer class="footer">
+    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <div class="social-links">
+        <a href="https://instagram.com/er313__" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</footer>
 
 <script>
     function generateCode() {
@@ -40,18 +64,21 @@
         const canvas = document.getElementById('codeCanvas');
 
         if (!text) {
-            alert("Please enter some input.");
+            showToast("Please enter some input.");
             return;
         }
 
         if (type === 'qrcode') {
             QRCode.toCanvas(canvas, text, error => {
-                if (error) console.error(error);
+                if (error) {
+                    console.error(error);
+                    showToast("Error generating QR code.");
+                }
             });
         } else {
-            if ((type === 'ean13' && !/^\\d{12,13}$/.test(text)) ||
-                (type === 'ean8' && !/^\\d{7,8}$/.test(text))) {
-                alert("Invalid input for selected barcode type. Use only digits (12/13 for EAN-13, 7/8 for EAN-8).");
+            if ((type === 'ean13' && !/^\d{12,13}$/.test(text)) ||
+                (type === 'ean8' && !/^\d{7,8}$/.test(text))) {
+                showToast("Invalid input for selected barcode type. Use only digits (12/13 for EAN-13, 7/8 for EAN-8).");
                 return;
             }
 
@@ -66,10 +93,30 @@
                 });
             } catch (e) {
                 console.error(e);
-                alert("Failed to generate barcode. Check your input.");
+                showToast("Failed to generate barcode. Check your input.");
             }
         }
     }
+
+    function copyQRImage() {
+        const canvas = document.getElementById("codeCanvas");
+        if (canvas) {
+            canvas.toBlob(blob => {
+                navigator.clipboard.write([
+                    new ClipboardItem({ "image/png": blob })
+                ]).then(() => showToast("Copied to clipboard!"));
+            });
+        }
+    }
+
+    // 🔁 Updated to support custom messages
+    function showToast(message = "Copied to clipboard!") {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
+    }
 </script>
+
 </body>
 </html>

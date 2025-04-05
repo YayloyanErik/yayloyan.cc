@@ -4,30 +4,78 @@
     <meta charset="UTF-8">
     <title>Base64 Encoder/Decoder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<header class="navbar"><div class="logo"><a href="../index.html">Yayloyan</a></div></header>
-<section class="section">
-    <h2>Base64 Encoder/Decoder</h2>
-    <textarea id="b64input" rows="4" placeholder="Enter text..."></textarea><br>
-    <button class="btn" onclick="encode()">Encode</button>
-    <button class="btn" onclick="decode()">Decode</button>
-    <p id="b64result" style="margin-top: 1rem; word-wrap: break-word;"></p>
-</section>
+
+<header class="navbar">
+    <div class="logo"><a href="../index.html">Yayloyan</a></div>
+    <nav>
+        <ul>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+    <section class="section">
+        <h2>Base64 Encoder/Decoder</h2>
+        <textarea id="b64input" rows="4" placeholder="Enter text..."></textarea><br>
+        <button class="btn" onclick="encode()">Encode</button>
+        <button class="btn" onclick="decode()">Decode</button>
+        <button class="btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+        <p id="b64result" style="margin-top: 1rem; word-wrap: break-word;"></p>
+    </section>
+
+    <!-- Toast container -->
+    <div id="toast" class="toast">Copied to clipboard!</div>
+</main>
+
+<footer class="footer">
+    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <div class="social-links">
+        <a href="https://instagram.com/er313__" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</footer>
+
 <script>
-function encode() {
-    const input = document.getElementById('b64input').value;
-    document.getElementById('b64result').innerText = btoa(input);
-}
-function decode() {
-    const input = document.getElementById('b64input').value;
-    try {
-        document.getElementById('b64result').innerText = atob(input);
-    } catch {
-        document.getElementById('b64result').innerText = "Invalid Base64 string.";
+    function encode() {
+        const input = document.getElementById('b64input').value;
+        document.getElementById('b64result').innerText = btoa(input);
     }
-}
+
+    function decode() {
+        const input = document.getElementById('b64input').value;
+        try {
+            document.getElementById('b64result').innerText = atob(input);
+        } catch {
+            document.getElementById('b64result').innerText = "Invalid Base64 string.";
+        }
+    }
+
+    function copyToClipboard() {
+        const text = document.getElementById('b64result').innerText;
+        if (text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            });
+        }
+    }
+
+    function showToast() {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
 </script>
+
 </body>
 </html>

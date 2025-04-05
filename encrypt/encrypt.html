@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encrypt / Decrypt – Yayloyan.cc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 </head>
@@ -22,21 +23,23 @@
     </nav>
 </header>
 
-<section class="section">
-    <h2>Encrypt / Decrypt Text</h2>
+<main class="main">
+    <section class="section">
+        <h2>Encrypt / Decrypt Text</h2>
 
-    <label for="plainText">Text:</label><br>
-    <textarea id="plainText" rows="5" placeholder="Enter your text here..."></textarea><br><br>
+        <label for="plainText">Text:</label><br>
+        <textarea id="plainText" rows="5" placeholder="Enter your text here..."></textarea><br><br>
 
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" style="width: 100%; max-width: 600px;"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" style="width: 100%; max-width: 600px;"><br><br>
 
-    <button class="btn" onclick="encryptText()">Encrypt</button>
-    <button class="btn" onclick="decryptText()">Decrypt</button>
+        <button class="btn" onclick="encryptText()">Encrypt</button>
+        <button class="btn" onclick="decryptText()">Decrypt</button>
 
-    <h3 style="margin-top: 2rem;">Result:</h3>
-    <div id="result" style="word-wrap: break-word;"></div>
-</section>
+        <h3 style="margin-top: 2rem;">Result:</h3>
+        <div id="result" style="word-wrap: break-word;"></div>
+    </section>
+</main>
 
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
