@@ -74,6 +74,7 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 2rem;
 }
 
+/* Buttons */
 .btn {
     background: white;
     color: #0ABAB5;
@@ -92,7 +93,7 @@ h1, h2, h3, h4, h5 {
 
 /* Sections */
 .section {
-    padding: 3rem 2rem;
+    padding: 3rem 1.5rem;
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
@@ -102,6 +103,14 @@ h1, h2, h3, h4, h5 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #0ABAB5;
+}
+
+.section ul {
+    padding-left: 1.25rem;
+}
+
+.section li {
+    padding-left: 0.25rem;
 }
 
 /* Footer */
@@ -155,6 +164,14 @@ h1, h2, h3, h4, h5 {
         padding: 2rem 1rem;
     }
 
+    .section ul {
+        padding-left: 1.25rem;
+    }
+
+    .section li {
+        padding-left: 0.25rem;
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
@@ -178,11 +195,14 @@ h1, h2, h3, h4, h5 {
         margin: 0 0.4rem;
     }
 }
+
 @media (max-width: 480px) {
     .section {
         padding: 2rem 1rem;
     }
 }
+
+/* Textareas */
 textarea {
     width: 100%;
     max-width: 600px;
@@ -196,6 +216,7 @@ textarea {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+/* Script List (Script Hub) */
 .script-list {
     list-style: none;
     padding-left: 0;
@@ -214,6 +235,7 @@ textarea {
     left: 0;
 }
 
+/* Project Block (home/projects) */
 .project {
     margin-bottom: 2rem;
 }
