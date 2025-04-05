@@ -1,5 +1,41 @@
+# macOS System Files
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+# IntelliJ IDEA System Files
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Node.js Modules and Logs
 node_modules/
-dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
 .env
+
+# Build Artifacts
+dist/
+build/
+
+# Logs
 *.log
+
+# OS-specific temporary files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
