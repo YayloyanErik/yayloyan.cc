@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Formatter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="navbar"><div class="logo"><a href="../index.html">Yayloyan</a></div></header>
+<section class="section">
+    <h2>JSON Formatter</h2>
+    <textarea id="jsonInput" rows="6" placeholder="Paste JSON here..."></textarea><br>
+    <button class="btn" onclick="formatJSON()">Format</button>
+    <p id="jsonResult" style="white-space: pre-wrap; margin-top: 1rem;"></p>
+</section>
+<script>
+function formatJSON() {
+    try {
+        const input = document.getElementById('jsonInput').value;
+        const obj = JSON.parse(input);
+        const formatted = JSON.stringify(obj, null, 2);
+        document.getElementById('jsonResult').innerText = formatted;
+    } catch {
+        document.getElementById('jsonResult').innerText = "Invalid JSON.";
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR, Barcode & Data Matrix Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bwip-js/dist/bwip-js-min.js"></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo"><a href="../index.html">Yayloyan</a></div>
+</header>
+<section class="section">
+    <h2>QR / Barcode / Data Matrix Generator</h2>
+
+    <label for="qrType">Code Type:</label>
+    <select id="qrType">
+        <option value="qrcode">QR Code</option>
+        <option value="code128">Barcode (Code 128)</option>
+        <option value="code39">Barcode (Code 39)</option>
+        <option value="ean13">Barcode (EAN-13)</option>
+        <option value="ean8">Barcode (EAN-8)</option>
+        <option value="datamatrix">Data Matrix</option>
+        <option value="azteccode">Aztec Code</option>
+    </select><br><br>
+
+    <input type="text" id="qrInput" placeholder="Enter text or number..." style="width:100%; max-width:400px;">
+    <button class="btn" onclick="generateCode()">Generate</button>
+
+    <br><br>
+    <canvas id="codeCanvas"></canvas>
+</section>
+
+<script>
+    function generateCode() {
+        const type = document.getElementById('qrType').value;
+        const text = document.getElementById('qrInput').value.trim();
+        const canvas = document.getElementById('codeCanvas');
+
+        if (!text) {
+            alert("Please enter some input.");
+            return;
+        }
+
+        if (type === 'qrcode') {
+            QRCode.toCanvas(canvas, text, error => {
+                if (error) console.error(error);
+            });
+        } else {
+            if ((type === 'ean13' && !/^\\d{12,13}$/.test(text)) ||
+                (type === 'ean8' && !/^\\d{7,8}$/.test(text))) {
+                alert("Invalid input for selected barcode type. Use only digits (12/13 for EAN-13, 7/8 for EAN-8).");
+                return;
+            }
+
+            try {
+                bwipjs.toCanvas(canvas, {
+                    bcid: type,
+                    text: text,
+                    scale: 3,
+                    height: 10,
+                    includetext: true,
+                    textxalign: 'center'
+                });
+            } catch (e) {
+                console.error(e);
+                alert("Failed to generate barcode. Check your input.");
+            }
+        }
+    }
+</script>
+</body>
+</html>

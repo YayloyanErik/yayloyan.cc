@@ -1,0 +1,1 @@
+const fs = require('fs'); const file = 'script.js'; /* remove console.log */

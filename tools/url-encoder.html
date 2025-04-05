@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Encoder / Decoder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="navbar"><div class="logo"><a href="../index.html">Yayloyan</a></div></header>
+<section class="section">
+    <h2>URL Encoder / Decoder</h2>
+    <textarea id="urlInput" rows="4" placeholder="Enter text to encode or decode..."></textarea><br>
+    <button class="btn" onclick="encodeURL()">Encode</button>
+    <button class="btn" onclick="decodeURL()">Decode</button>
+    <p id="urlResult" style="margin-top: 1rem; word-wrap: break-word;"></p>
+</section>
+<script>
+function encodeURL() {
+    document.getElementById("urlResult").innerText = encodeURIComponent(document.getElementById("urlInput").value);
+}
+function decodeURL() {
+    document.getElementById("urlResult").innerText = decodeURIComponent(document.getElementById("urlInput").value);
+}
+</script>
+</body>
+</html>

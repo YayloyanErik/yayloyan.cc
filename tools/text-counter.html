@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Counter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="navbar"><div class="logo"><a href="../index.html">Yayloyan</a></div></header>
+<section class="section">
+    <h2>Text Character Counter</h2>
+    <textarea id="textInput" rows="6" placeholder="Enter your text..."></textarea><br>
+    <button class="btn" onclick="countText()">Count</button>
+    <p id="textCountResult" style="margin-top: 1rem;"></p>
+</section>
+<script>
+function countText() {
+    const text = document.getElementById('textInput').value;
+    const chars = text.length;
+    const blanks = (text.match(/ /g) || []).length;
+    const words = text.trim().split(/\s+/).filter(Boolean).length;
+    const lines = text.split(/\n/).length;
+    document.getElementById('textCountResult').innerText = 
+        `Characters: ${chars}\nWords: ${words}\nLines: ${lines}\nBlank spaces: ${blanks}`;
+}
+</script>
+</body>
+</html>

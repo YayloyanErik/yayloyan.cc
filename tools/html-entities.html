@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Entities Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="navbar"><div class="logo"><a href="../index.html">Yayloyan</a></div></header>
+<section class="section">
+    <h2>HTML Entities Converter</h2>
+    <textarea id="htmlInput" rows="4" placeholder="Enter text or entities..."></textarea><br>
+    <button class="btn" onclick="encode()">Encode</button>
+    <button class="btn" onclick="decode()">Decode</button>
+    <p id="htmlResult" style="margin-top: 1rem; word-wrap: break-word;"></p>
+</section>
+<script>
+function encode() {
+    const txt = document.createElement("textarea");
+    txt.textContent = document.getElementById("htmlInput").value;
+    document.getElementById("htmlResult").innerText = txt.innerHTML;
+}
+function decode() {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = document.getElementById("htmlInput").value;
+    document.getElementById("htmlResult").innerText = txt.value;
+}
+</script>
+</body>
+</html>

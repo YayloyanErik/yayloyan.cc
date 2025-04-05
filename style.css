@@ -10,10 +10,16 @@ html {
 }
 
 body {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Rubik', sans-serif;
     background-color: #f9f9f9;
     color: #222;
     line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.4px;
 }
 
 /* Navbar */
@@ -24,12 +30,14 @@ body {
     background-color: #1a1a1a;
     padding: 1rem 2rem;
     color: #fff;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar ul {
@@ -68,16 +76,17 @@ body {
 
 .btn {
     background: white;
-    color: #0ABAB5; /* Tiffany Blue button text */
+    color: #0ABAB5;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     transition: background 0.3s, color 0.3s;
+    font-family: 'Poppins', sans-serif;
 }
 
 .btn:hover {
-    background: #21F3AA; /* Hover with accent color */
+    background: #21F3AA;
     color: white;
 }
 
@@ -91,7 +100,7 @@ body {
 .section h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #0ABAB5; /* Tiffany Blue titles */
+    color: #0ABAB5;
 }
 
 /* Footer */
@@ -109,7 +118,7 @@ body {
 }
 
 .footer a:hover {
-    color: #0ABAB5; /* Tiffany Blue */
+    color: #0ABAB5;
 }
 
 .footer .social-links {
@@ -121,11 +130,11 @@ body {
     font-size: 1.5rem;
     margin: 0 0.6rem;
     transition: color 0.3s;
-    text-decoration: none; /* removes underline */
+    text-decoration: none;
 }
 
 .footer .social-links a:hover {
-    color: #0ABAB5; /* Tiffany Blue */
+    color: #0ABAB5;
 }
 
 /* Mobile responsiveness */
@@ -167,4 +176,47 @@ body {
         font-size: 1.2rem;
         margin: 0 0.4rem;
     }
+}
+
+textarea {
+    width: 100%;
+    max-width: 600px;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.script-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.script-list li {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.script-list li::before {
+    content: "📄";
+    position: absolute;
+    left: 0;
+}
+
+.project {
+    margin-bottom: 2rem;
+}
+
+.project h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project p {
+    margin-bottom: 1rem;
 }
