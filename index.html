@@ -14,13 +14,17 @@
     <div class="logo">
         <a href="index.html">Yayloyan</a>
     </div>
-    <nav>
+    <nav id="navbar" class="nav-menu">
         <ul>
             <li><a href="#tools">Tools</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+    <div class="hamburger" id="hamburger-menu">
+        <i class="fas fa-bars" id="hamburger-icon"></i>
+        <i class="fas fa-times" id="close-icon"></i>
+    </div>
 </header>
 
 <main class="main">
@@ -91,6 +95,18 @@
         <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
     </div>
 </footer>
+  <script>
+    const hamburger = document.getElementById('hamburger-menu');
+    const navbar = document.getElementById('navbar');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
 
+    hamburger.addEventListener('click', () => {
+        navbar.classList.toggle('open');
+        const isOpen = navbar.classList.contains('open');
+        hamburgerIcon.style.display = isOpen ? 'none' : 'block';
+        closeIcon.style.display = isOpen ? 'block' : 'none';
+    });
+  </script>
 </body>
 </html>

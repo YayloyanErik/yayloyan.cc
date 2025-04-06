@@ -206,6 +206,16 @@ h1, h2, h3, h4, h5 {
         font-size: 1.2rem;
         margin: 0 0.4rem;
     }
+
+    .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        z-index: 1000;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -282,4 +292,58 @@ textarea {
 .toast.show {
     visibility: visible;
     opacity: 1;
+}
+
+/* Hamburger Menu Toggle */
+.hamburger {
+    display: none;
+}
+
+#hamburger-icon,
+#close-icon {
+    display: none;
+}
+
+/* Show hamburger icon and toggle menu on mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    #hamburger-icon {
+        display: block;
+    }
+
+    #navbar ul {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #1a1a1a;
+        width: 100%;
+        padding: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    #navbar.open ul {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+        padding: 1rem;
+    }
+
+    #navbar.open #hamburger-icon {
+        display: none;
+    }
+
+    #navbar.open #close-icon {
+        display: block;
+    }
 }

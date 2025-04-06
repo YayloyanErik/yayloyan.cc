@@ -3,18 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Regex Tester</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<header class="navbar"><div class="logo"><a href="../index.html">Yayloyan</a></div></header>
-<section class="section">
-    <h2>Regex Tester</h2>
-    <textarea id="text" rows="4" placeholder="Text to test..."></textarea><br>
-    <input type="text" id="pattern" placeholder="Regex pattern (e.g. \d+)">
-    <button class="btn" onclick="testRegex()">Test</button>
-    <p id="regexResult" style="white-space: pre-wrap; margin-top: 1rem;"></p>
-</section>
+<header class="navbar">
+    <div class="logo"><a href="../index.html">Yayloyan</a></div>
+    <nav id="navbar">
+        <ul>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="hamburger" id="hamburger-menu">
+        <i class="fas fa-bars" id="hamburger-icon"></i>
+        <i class="fas fa-times" id="close-icon"></i>
+    </div>
+</header>
+<main class="main">
+    <section class="section">
+        <h2>Regex Tester</h2>
+        <textarea id="text" rows="4" placeholder="Text to test..."></textarea><br>
+        <input type="text" id="pattern" placeholder="Regex pattern (e.g. \d+)">
+        <button class="btn" onclick="testRegex()">Test</button>
+        <p id="regexResult" style="white-space: pre-wrap; margin-top: 1rem;"></p>
+    </section>
+</main>
+<footer class="footer">
+    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <div class="social-links">
+        <a href="https://instagram.com/er313__" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</footer>
 <script>
 function testRegex() {
     const text = document.getElementById('text').value;
@@ -29,6 +54,19 @@ function testRegex() {
         document.getElementById('regexResult').innerText = "Invalid regex pattern.";
     }
 }
+</script>
+<script>
+    const hamburger = document.getElementById('hamburger-menu');
+    const navbar = document.getElementById('navbar');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    hamburger.addEventListener('click', () => {
+        navbar.classList.toggle('open');
+        const isOpen = navbar.classList.contains('open');
+        hamburgerIcon.style.display = isOpen ? 'none' : 'block';
+        closeIcon.style.display = isOpen ? 'block' : 'none';
+    });
 </script>
 </body>
 </html>

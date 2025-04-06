@@ -14,13 +14,17 @@
     <div class="logo">
         <a href="../index.html">Yayloyan</a>
     </div>
-    <nav>
+    <nav id="navbar">
         <ul>
             <li><a href="../index.html#tools">Tools</a></li>
             <li><a href="../index.html#projects">Projects</a></li>
             <li><a href="../index.html#contact">Contact</a></li>
         </ul>
     </nav>
+    <div class="hamburger" id="hamburger-menu">
+        <i class="fas fa-bars" id="hamburger-icon"></i>
+        <i class="fas fa-times" id="close-icon"></i>
+    </div>
 </header>
 
 <main class="main">
@@ -69,6 +73,19 @@
 <!-- SparkMD5 for MD5 hashing -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.2/spark-md5.min.js"></script>
 <script src="hash.js"></script>
+<script>
+    const hamburger = document.getElementById('hamburger-menu');
+    const navbar = document.getElementById('navbar');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    hamburger.addEventListener('click', () => {
+        navbar.classList.toggle('open');
+        const isOpen = navbar.classList.contains('open');
+        hamburgerIcon.style.display = isOpen ? 'none' : 'block';
+        closeIcon.style.display = isOpen ? 'block' : 'none';
+    });
+</script>
 
 </body>
 </html>
