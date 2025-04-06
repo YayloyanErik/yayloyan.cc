@@ -1,17 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>QR, Barcode & Data Matrix Generator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <title>QR, Barcode &amp; Data Matrix Generator</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="../style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
+          rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bwip-js/dist/bwip-js-min.js"></script>
+    <style>body {
+        opacity: 0;
+    }</style>
 </head>
-<body>
-
+<body class="fade-in">
 <header class="navbar">
     <div class="logo"><a href="../index.html">Yayloyan</a></div>
     <nav id="navbar">
@@ -26,11 +30,9 @@
         <i class="fas fa-times" id="close-icon"></i>
     </div>
 </header>
-
 <main class="main">
     <section class="section">
         <h2>QR / Barcode / Data Matrix Generator</h2>
-
         <label for="qrType">Code Type:</label>
         <select id="qrType">
             <option value="qrcode">QR Code</option>
@@ -40,18 +42,15 @@
             <option value="ean8">Barcode (EAN-8)</option>
             <option value="datamatrix">Data Matrix</option>
             <option value="azteccode">Aztec Code</option>
-        </select><br><br>
-
-        <input type="text" id="qrInput" placeholder="Enter text or number..." style="width:100%; max-width:400px;">
+        </select><br/><br/>
+        <input id="qrInput" placeholder="Enter text or number..." style="width:100%; max-width:400px;" type="text"/>
         <button class="btn" onclick="generateCode()">Generate</button>
-        <button class="btn" onclick="copyQRImage()">Copy to Clipboard</button><br><br>
-
+        <button class="btn" onclick="copyQRImage()">Copy to Clipboard</button>
+        <br/><br/>
         <canvas id="codeCanvas"></canvas>
     </section>
-
-    <div id="toast" class="toast">Copied to clipboard!</div>
+    <div class="toast" id="toast">Copied to clipboard!</div>
 </main>
-
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
@@ -60,7 +59,6 @@
         <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
     </div>
 </footer>
-
 <script>
     function generateCode() {
         const type = document.getElementById('qrType').value;
@@ -107,7 +105,7 @@
         if (canvas) {
             canvas.toBlob(blob => {
                 navigator.clipboard.write([
-                    new ClipboardItem({ "image/png": blob })
+                    new ClipboardItem({"image/png": blob})
                 ]).then(() => showToast("Copied to clipboard!"));
             });
         }
@@ -133,6 +131,38 @@
         closeIcon.style.display = isOpen ? 'block' : 'none';
     });
 </script>
-
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            document.body.classList.add("fade-in");
+        });
+    });
+</script>
 </body>
 </html>

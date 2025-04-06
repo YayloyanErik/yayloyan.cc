@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Hash Generator – Yayloyan.cc</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="../style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <style>body {
+        opacity: 0;
+    }</style>
 </head>
-<body>
-
+<body class="fade-in">
 <header class="navbar">
     <div class="logo">
         <a href="../index.html">Yayloyan</a>
@@ -26,12 +30,10 @@
         <i class="fas fa-times" id="close-icon"></i>
     </div>
 </header>
-
 <main class="main">
     <section class="section">
         <h2>Hash Generator</h2>
         <p>Choose a hash algorithm and input file or text to generate the hash.</p>
-
         <label for="algorithm">Select Algorithm:</label>
         <select id="algorithm">
             <option value="SHA-256">SHA-256</option>
@@ -39,22 +41,20 @@
             <option value="SHA-1">SHA-1</option>
             <option value="MD5">MD5</option>
         </select>
-
         <h3 style="margin-top: 2rem;">Hash a File</h3>
-        <input type="file" id="fileInput" />
+        <input id="fileInput" type="file"/>
         <button class="btn" onclick="generateHash()">Generate File Hash</button>
         <div id="hashResult" style="margin-top: 1.5rem; word-wrap: break-word;"></div>
-
-        <hr style="margin: 3rem 0; border: none; border-top: 1px solid #ccc;" />
-
+        <button class="btn" onclick="copyToClipboard('hashResult')">Copy</button>
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid #ccc;"/>
         <h3>Or Paste Text</h3>
-        <textarea id="textInput" rows="5" placeholder="Enter your text here..."></textarea>
-        <br>
+        <textarea id="textInput" placeholder="Enter your text here..." rows="5"></textarea>
+        <br/>
         <button class="btn" onclick="generateTextHash()" style="margin-top: 1rem;">Generate Text Hash</button>
         <div id="textHashResult" style="margin-top: 1.5rem; word-wrap: break-word;"></div>
+        <button class="btn" onclick="copyToClipboard('textHashResult')">Copy</button>
     </section>
 </main>
-
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
@@ -69,7 +69,6 @@
         </a>
     </div>
 </footer>
-
 <!-- SparkMD5 for MD5 hashing -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.2/spark-md5.min.js"></script>
 <script src="hash.js"></script>
@@ -86,6 +85,64 @@
         closeIcon.style.display = isOpen ? 'block' : 'none';
     });
 </script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            document.body.classList.add("fade-in");
+        });
+    });
+</script>
+<div class="toast" id="toast">Copied to clipboard!</div>
+<script>
+    function copyToClipboard(id) {
+        const el = document.getElementById(id);
+        if (!el || !el.innerText.trim()) return;
+        navigator.clipboard.writeText(el.innerText).then(() => {
+            const toast = document.getElementById("toast");
+            toast.textContent = "Copied to clipboard!";
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2000);
+        });
+    }
+</script>
 
+<script>
+    function copyToClipboard(id) {
+        const el = document.getElementById(id);
+        if (!el || !el.innerText.trim()) return;
+        navigator.clipboard.writeText(el.innerText).then(() => {
+            const toast = document.getElementById("toast");
+            toast.textContent = "Copied to clipboard!";
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2000);
+        });
+    }
+</script>
 </body>
 </html>

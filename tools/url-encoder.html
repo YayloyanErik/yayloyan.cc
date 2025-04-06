@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
     <title>URL Encoder / Decoder</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="../style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
+          rel="stylesheet"/>
+    <style>body {
+        opacity: 0;
+    }</style>
 </head>
-<body>
-
+<body class="fade-in">
 <header class="navbar">
     <div class="logo"><a href="../index.html">Yayloyan</a></div>
     <nav id="navbar">
@@ -24,20 +28,17 @@
         <i class="fas fa-times" id="close-icon"></i>
     </div>
 </header>
-
 <main class="main">
     <section class="section">
         <h2>URL Encoder / Decoder</h2>
-        <textarea id="urlInput" rows="4" placeholder="Enter text to encode or decode..."></textarea><br>
+        <textarea id="urlInput" placeholder="Enter text to encode or decode..." rows="4"></textarea><br/>
         <button class="btn" onclick="encodeURL()">Encode</button>
         <button class="btn" onclick="decodeURL()">Decode</button>
         <button class="btn" onclick="copyToClipboard()">Copy to Clipboard</button>
         <p id="urlResult" style="margin-top: 1rem; word-wrap: break-word;"></p>
     </section>
-
-    <div id="toast" class="toast">Copied to clipboard!</div>
+    <div class="toast" id="toast">Copied to clipboard!</div>
 </main>
-
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
@@ -46,7 +47,6 @@
         <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
     </div>
 </footer>
-
 <script>
     function encodeURL() {
         document.getElementById("urlResult").innerText =
@@ -83,6 +83,38 @@
         closeIcon.style.display = isOpen ? 'block' : 'none';
     });
 </script>
-
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            document.body.classList.add("fade-in");
+        });
+    });
+</script>
 </body>
 </html>

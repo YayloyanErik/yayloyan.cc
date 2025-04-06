@@ -1,20 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Yayloyan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <style>body {
+        opacity: 0;
+    }</style>
 </head>
-<body>
-
+<body class="fade-in">
 <header class="navbar">
     <div class="logo">
         <a href="index.html">Yayloyan</a>
     </div>
-    <nav id="navbar" class="nav-menu">
+    <nav class="nav-menu" id="navbar">
         <ul>
             <li><a href="#tools">Tools</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -26,50 +30,52 @@
         <i class="fas fa-times" id="close-icon"></i>
     </div>
 </header>
-
 <main class="main">
     <section class="welcome">
         <h1>Welcome to Yayloyan.cc</h1>
         <p>Minimalist. Clean. Powerful.</p>
-        <a href="about.html" class="btn">Learn More</a>
+        <a class="btn" href="about.html">Learn More</a>
     </section>
-
-    <section id="goals" class="section">
+    <section class="section" id="goals">
         <h2>Goals</h2>
         <p>Delivering clean, innovative, and efficient solutions that simplify complexity.</p>
     </section>
-
-    <section id="tools" class="section">
+    <section class="section" id="tools">
         <h2>Tools</h2>
         <p>Quick, simple, browser-based utilities for developers and power users.</p>
         <ul>
-            <li><a href="tools/uuid.html">🆔 UUID Generator</a> – Generate UUIDs (v1, v4, v5), with name-based and bulk options.</li>
-            <li><a href="tools/timestamp.html">📆 Timestamp Converter</a> – Convert Unix timestamps to human-readable format.</li>
+            <li><a href="tools/uuid.html">🆔 UUID Generator</a> – Generate UUIDs (v1, v4, v5), with name-based and bulk
+                options.
+            </li>
+            <li><a href="tools/timestamp.html">📆 Timestamp Converter</a> – Convert Unix timestamps to human-readable
+                format.
+            </li>
             <li><a href="tools/password.html">🔐 Password Generator</a> – Generate secure, random passwords.</li>
             <li><a href="tools/base64.html">📎 Base64 Encoder/Decoder</a> – Encode or decode text with Base64.</li>
-            <li><a href="tools/url-encoder.html">📤 URL Encoder/Decoder</a> – Escape and unescape strings for safe URLs.</li>
-            <li><a href="tools/text-counter.html">🧮 Text Character Counter</a> – Count characters, words, and lines.</li>
+            <li><a href="tools/url-encoder.html">📤 URL Encoder/Decoder</a> – Escape and unescape strings for safe URLs.
+            </li>
+            <li><a href="tools/text-counter.html">🧮 Text Character Counter</a> – Count characters, words, and lines.
+            </li>
             <li><a href="tools/json.html">📦 JSON Formatter</a> – Pretty-print or minify your JSON data.</li>
             <li><a href="tools/html-entities.html">🧾 HTML Entities Converter</a> – Encode/decode HTML entities.</li>
-            <li><a href="tools/qr.html">📸 QR / Barcode / Data Matrix Generator</a> – Generate QR codes, barcodes (EAN, Code 39, Code 128), and 2D matrix codes like Aztec.</li>
+            <li><a href="tools/qr.html">📸 QR / Barcode / Data Matrix Generator</a> – Generate QR codes, barcodes (EAN,
+                Code 39, Code 128), and 2D matrix codes like Aztec.
+            </li>
             <li><a href="tools/regex.html">📎 Regex Tester</a> – Test and debug regular expressions live.</li>
         </ul>
     </section>
-
-    <section id="projects" class="section">
+    <section class="section" id="projects">
         <h2>Projects</h2>
         <div class="project">
             <h3>🔐 Hash Tool</h3>
             <p>A web-based tool to generate file and text hashes using SHA-256, SHA-512, SHA-1, and MD5.</p>
             <a class="btn" href="hash/hash.html">Try it</a>
         </div>
-
         <div class="project">
             <h3>🛡️ Encrypt Tool</h3>
             <p>Encrypt and decrypt text using AES-GCM with password support – all done client-side.</p>
             <a class="btn" href="encrypt/encrypt.html">Open</a>
         </div>
-
         <div class="project">
             <h3>⚙️ Script Hub</h3>
             <p>A growing collection of Bash, Windows, and Git productivity scripts designed to automate tasks and boost
@@ -77,16 +83,14 @@
             <a class="btn" href="scripts/index.html">Browse Scripts</a>
         </div>
     </section>
-
-    <section id="contact" class="section">
+    <section class="section" id="contact">
         <h2>Contact</h2>
         <p>
-            Got a bug to report, a feature idea, or a script suggestion?<br>
+            Got a bug to report, a feature idea, or a script suggestion?<br/>
             Email me at: <a href="mailto:info@yayloyan.cc">info@yayloyan.cc</a>
         </p>
     </section>
 </main>
-
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
@@ -95,7 +99,7 @@
         <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
     </div>
 </footer>
-  <script>
+<script>
     const hamburger = document.getElementById('hamburger-menu');
     const navbar = document.getElementById('navbar');
     const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -107,6 +111,39 @@
         hamburgerIcon.style.display = isOpen ? 'none' : 'block';
         closeIcon.style.display = isOpen ? 'block' : 'none';
     });
-  </script>
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            document.body.classList.add("fade-in");
+        });
+    });
+</script>
 </body>
 </html>

@@ -1,14 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
     <title>Regex Tester</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="../style.css" rel="stylesheet"/>
+    <style>body {
+        opacity: 0;
+    }</style>
 </head>
-<body>
+<body class="fade-in">
 <header class="navbar">
     <div class="logo"><a href="../index.html">Yayloyan</a></div>
     <nav id="navbar">
@@ -26,12 +31,12 @@
 <main class="main">
     <section class="section">
         <h2>Regex Tester</h2>
-        <textarea id="text" rows="4" placeholder="Text to test..."></textarea><br>
-        <input type="text" id="pattern" placeholder="Regex pattern (e.g. \d+)">
+        <textarea id="text" placeholder="Text to test..." rows="4"></textarea><br/>
+        <input id="pattern" placeholder="Regex pattern (e.g. \d+)" type="text"/>
         <button class="btn" onclick="testRegex()">Test</button>
         <button class="btn" onclick="copyMatches()">Copy Matches</button>
         <p id="regexResult" style="white-space: pre-wrap; margin-top: 1rem;"></p>
-        <div id="toast" class="toast">Copied to clipboard!</div>
+        <div class="toast" id="toast">Copied to clipboard!</div>
     </section>
 </main>
 <footer class="footer">
@@ -43,34 +48,34 @@
     </div>
 </footer>
 <script>
-function testRegex() {
-    const text = document.getElementById('text').value;
-    const pattern = document.getElementById('pattern').value;
-    try {
-        const regex = new RegExp(pattern, 'g');
-        const matches = [...text.matchAll(regex)];
-        document.getElementById('regexResult').innerText = matches.length
-            ? `Found ${matches.length} match(es):\n` + matches.map(m => m[0]).join('\n')
-            : 'No matches found.';
-    } catch (e) {
-        document.getElementById('regexResult').innerText = "Invalid regex pattern.";
+    function testRegex() {
+        const text = document.getElementById('text').value;
+        const pattern = document.getElementById('pattern').value;
+        try {
+            const regex = new RegExp(pattern, 'g');
+            const matches = [...text.matchAll(regex)];
+            document.getElementById('regexResult').innerText = matches.length
+                ? `Found ${matches.length} match(es):\n` + matches.map(m => m[0]).join('\n')
+                : 'No matches found.';
+        } catch (e) {
+            document.getElementById('regexResult').innerText = "Invalid regex pattern.";
+        }
     }
-}
 
-function copyMatches() {
-    const output = document.getElementById('regexResult').innerText;
-    if (!output || output === 'No matches found.') return;
-    navigator.clipboard.writeText(output).then(() => {
-        showToast("Copied to clipboard!");
-    });
-}
+    function copyMatches() {
+        const output = document.getElementById('regexResult').innerText;
+        if (!output || output === 'No matches found.') return;
+        navigator.clipboard.writeText(output).then(() => {
+            showToast("Copied to clipboard!");
+        });
+    }
 
-function showToast(message = "Copied to clipboard!") {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 2000);
-}
+    function showToast(message = "Copied to clipboard!") {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
+    }
 </script>
 <script>
     const hamburger = document.getElementById('hamburger-menu');
@@ -83,6 +88,39 @@ function showToast(message = "Copied to clipboard!") {
         const isOpen = navbar.classList.contains('open');
         hamburgerIcon.style.display = isOpen ? 'none' : 'block';
         closeIcon.style.display = isOpen ? 'block' : 'none';
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            document.body.classList.add("fade-in");
+        });
     });
 </script>
 </body>

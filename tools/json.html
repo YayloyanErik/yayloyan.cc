@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
     <title>JSON Formatter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="../style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <style>body {
+        opacity: 0;
+    }</style>
 </head>
-<body>
-
+<body class="fade-in">
 <header class="navbar">
     <div class="logo"><a href="../index.html">Yayloyan</a></div>
     <nav id="navbar">
@@ -24,19 +28,16 @@
         <i class="fas fa-times" id="close-icon"></i>
     </div>
 </header>
-
 <main class="main">
     <section class="section">
         <h2>JSON Formatter</h2>
-        <textarea id="jsonInput" rows="6" placeholder="Paste JSON here..."></textarea><br>
+        <textarea id="jsonInput" placeholder="Paste JSON here..." rows="6"></textarea><br/>
         <button class="btn" onclick="formatJSON()">Format</button>
         <button class="btn" onclick="copyToClipboard()">Copy to Clipboard</button>
         <p id="jsonResult" style="white-space: pre-wrap; margin-top: 1rem;"></p>
     </section>
-
-    <div id="toast" class="toast">Copied to clipboard!</div>
+    <div class="toast" id="toast">Copied to clipboard!</div>
 </main>
-
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
@@ -45,7 +46,6 @@
         <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
     </div>
 </footer>
-
 <script>
     function formatJSON() {
         try {
@@ -83,6 +83,38 @@
         closeIcon.style.display = isOpen ? 'block' : 'none';
     });
 </script>
-
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            document.body.classList.add("fade-in");
+        });
+    });
+</script>
 </body>
 </html>

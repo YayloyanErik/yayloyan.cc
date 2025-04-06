@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Encrypt / Decrypt – Yayloyan.cc</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="../style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <style>body {
+        opacity: 0;
+    }</style>
 </head>
-<body>
-
+<body class="fade-in">
 <header class="navbar">
     <div class="logo">
         <a href="../index.html">Yayloyan</a>
@@ -26,25 +30,20 @@
         <i class="fas fa-times" id="close-icon"></i>
     </div>
 </header>
-
 <main class="main">
     <section class="section">
         <h2>Encrypt / Decrypt Text</h2>
-
-        <label for="plainText">Text:</label><br>
-        <textarea id="plainText" rows="5" placeholder="Enter your text here..."></textarea><br><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" style="width: 100%; max-width: 600px;"><br><br>
-
+        <label for="plainText">Text:</label><br/>
+        <textarea id="plainText" placeholder="Enter your text here..." rows="5"></textarea><br/><br/>
+        <label for="password">Password:</label><br/>
+        <input id="password" style="width: 100%; max-width: 600px;" type="password"/><br/><br/>
         <button class="btn" onclick="encryptText()">Encrypt</button>
         <button class="btn" onclick="decryptText()">Decrypt</button>
-
         <h3 style="margin-top: 2rem;">Result:</h3>
         <div id="result" style="word-wrap: break-word;"></div>
+        <button class="btn" onclick="copyToClipboard('result')">Copy</button>
     </section>
 </main>
-
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
@@ -59,7 +58,6 @@
         </a>
     </div>
 </footer>
-
 <script src="encrypt.js"></script>
 <script>
     const hamburger = document.getElementById('hamburger-menu');
@@ -73,6 +71,52 @@
         hamburgerIcon.style.display = isOpen ? 'none' : 'block';
         closeIcon.style.display = isOpen ? 'block' : 'none';
     });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            document.body.classList.add("fade-in");
+        });
+    });
+</script>
+<div class="toast" id="toast">Copied to clipboard!</div>
+<script>
+    function copyToClipboard(id) {
+        const el = document.getElementById(id);
+        if (!el || !el.innerText.trim()) return;
+        navigator.clipboard.writeText(el.innerText).then(() => {
+            const toast = document.getElementById("toast");
+            toast.textContent = "Copied to clipboard!";
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2000);
+        });
+    }
 </script>
 </body>
 </html>

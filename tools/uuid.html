@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
     <title>UUID Generator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap" rel="stylesheet">
-
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="../style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
+          rel="stylesheet"/>
     <script type="module">
-        import { NIL as uuidNil, v1 as uuidv1, v4 as uuidv4, v5 as uuidv5 } from 'https://esm.sh/uuid';
+        import {NIL as uuidNil, v1 as uuidv1, v4 as uuidv4, v5 as uuidv5} from 'https://esm.sh/uuid';
 
         const predefinedNamespaces = {
             DNS: '6ba7b810-9dad-11d1-80b4-00c04fd430c8',
@@ -62,9 +63,11 @@
             setTimeout(() => toast.classList.remove("show"), 2000);
         };
     </script>
+    <style>body {
+        opacity: 0;
+    }</style>
 </head>
-<body>
-
+<body class="fade-in">
 <header class="navbar">
     <div class="logo"><a href="../index.html">Yayloyan</a></div>
     <nav id="navbar">
@@ -79,40 +82,32 @@
         <i class="fas fa-times" id="close-icon"></i>
     </div>
 </header>
-
 <main class="main">
     <section class="section">
         <h2>UUID Generator</h2>
-
         <label for="uuid-version">Version:</label>
         <select id="uuid-version" onchange="toggleV5Fields()">
             <option value="v4">UUID v4 (random)</option>
             <option value="v1">UUID v1 (timestamp-based)</option>
             <option value="v5">UUID v5 (name-based)</option>
         </select>
-
-        <br><br>
+        <br/><br/>
         <label for="uuid-count">How many UUIDs to generate?</label>
-        <input type="number" id="uuid-count" value="1" min="1" max="100" style="width: 60px;">
-
+        <input id="uuid-count" max="100" min="1" style="width: 60px;" type="number" value="1"/>
         <div id="v5-fields" style="display: none; margin-top: 1rem;">
-            <label for="v5-name">Name:</label><br>
-            <input type="text" id="v5-name" placeholder="Enter name (e.g. yayloyan.cc)" style="width: 100%;"><br><br>
-
-            <label for="v5-namespace">Namespace:</label><br>
-            <input type="text" id="v5-namespace" placeholder="DNS, URL, or UUID (default: NIL UUID)" style="width: 100%;">
+            <label for="v5-name">Name:</label><br/>
+            <input id="v5-name" placeholder="Enter name (e.g. yayloyan.cc)" style="width: 100%;" type="text"/><br/><br/>
+            <label for="v5-namespace">Namespace:</label><br/>
+            <input id="v5-namespace" placeholder="DNS, URL, or UUID (default: NIL UUID)" style="width: 100%;"
+                   type="text"/>
         </div>
-
-        <br>
+        <br/>
         <button class="btn" onclick="generateUUID()">Generate</button>
         <button class="btn" onclick="copyUUIDs()">Copy to Clipboard</button>
-
         <pre id="uuidResult" style="margin-top: 1rem; font-family: monospace; white-space: pre-wrap;"></pre>
     </section>
-
-    <div id="toast" class="toast">Copied to clipboard!</div>
+    <div class="toast" id="toast">Copied to clipboard!</div>
 </main>
-
 <script>
     const hamburger = document.getElementById('hamburger-menu');
     const navbar = document.getElementById('navbar');
@@ -126,7 +121,6 @@
         closeIcon.style.display = isOpen ? 'block' : 'none';
     });
 </script>
-
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
@@ -135,6 +129,38 @@
         <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
     </div>
 </footer>
-
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll("a[href$='.html']").forEach(link => {
+        link.addEventListener("click", function (e) {
+            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        });
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        requestAnimationFrame(() => {
+            document.body.classList.add("fade-in");
+        });
+    });
+</script>
 </body>
 </html>
