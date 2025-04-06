@@ -29,7 +29,9 @@
         <textarea id="text" rows="4" placeholder="Text to test..."></textarea><br>
         <input type="text" id="pattern" placeholder="Regex pattern (e.g. \d+)">
         <button class="btn" onclick="testRegex()">Test</button>
+        <button class="btn" onclick="copyMatches()">Copy Matches</button>
         <p id="regexResult" style="white-space: pre-wrap; margin-top: 1rem;"></p>
+        <div id="toast" class="toast">Copied to clipboard!</div>
     </section>
 </main>
 <footer class="footer">
@@ -48,11 +50,26 @@ function testRegex() {
         const regex = new RegExp(pattern, 'g');
         const matches = [...text.matchAll(regex)];
         document.getElementById('regexResult').innerText = matches.length
-            ? 'Matches:\n' + matches.map(m => m[0]).join('\n')
+            ? `Found ${matches.length} match(es):\n` + matches.map(m => m[0]).join('\n')
             : 'No matches found.';
     } catch (e) {
         document.getElementById('regexResult').innerText = "Invalid regex pattern.";
     }
+}
+
+function copyMatches() {
+    const output = document.getElementById('regexResult').innerText;
+    if (!output || output === 'No matches found.') return;
+    navigator.clipboard.writeText(output).then(() => {
+        showToast("Copied to clipboard!");
+    });
+}
+
+function showToast(message = "Copied to clipboard!") {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 2000);
 }
 </script>
 <script>
