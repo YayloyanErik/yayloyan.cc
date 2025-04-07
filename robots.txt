@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://yayloyan.cc/sitemap.html
+Sitemap: https://yayloyan.cc/sitemap.xml
