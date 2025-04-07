@@ -4,27 +4,58 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta name="description" content="Yayloyan.cc – A powerful collection of online tools including hash generators, QR creators, encryption tools, UUID, and developer scripts.">
-    <meta name="keywords" content="hash generator, QR code, encrypt online, AES tool, script hub, base64, uuid, timestamp converter, password generator, online tools">
+    <meta content="Yayloyan.cc – A powerful collection of online tools including hash generators, QR creators, encryption tools, UUID, and developer scripts."
+          name="description"/>
+    <meta content="hash generator, QR code, encrypt online, AES tool, script hub, base64, uuid, timestamp converter, password generator, online tools"
+          name="keywords"/>
     <title>Yayloyan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
           rel="stylesheet"/>
-    <link href="style.css" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <link href="/style.css" rel="stylesheet"/>
+    <link href="/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
     <style>body {
         opacity: 0;
     }</style>
+
+
+    <style>
+        body.fade-in {
+            animation: fadeIn 150ms ease-in forwards;
+        }
+
+        body.fade-out {
+            animation: fadeOut 150ms ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body class="fade-in">
 <header class="navbar">
     <div class="logo">
-        <a href="index.html">Yayloyan</a>
+        <a href="/">Yayloyan</a>
     </div>
     <nav class="nav-menu" id="navbar">
         <ul>
-            <li><a href="#tools">Tools</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/#tools">Tools</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="hamburger" id="hamburger-menu">
@@ -36,7 +67,7 @@
     <section class="welcome">
         <h1>Welcome to Yayloyan.cc</h1>
         <p>Minimalist. Clean. Powerful.</p>
-        <a class="btn" href="about.html">Learn More</a>
+        <a class="btn" href="about/">Learn More</a>
     </section>
     <section class="section" id="goals">
         <h2>Goals</h2>
@@ -46,24 +77,24 @@
         <h2>Tools</h2>
         <p>Quick, simple, browser-based utilities for developers and power users.</p>
         <ul>
-            <li><a href="tools/uuid.html">🆔 UUID Generator</a> – Generate UUIDs (v1, v4, v5), with name-based and bulk
+            <li><a href="tools/uuid/">🆔 UUID Generator</a> – Generate UUIDs (v1, v4, v5), with name-based and bulk
                 options.
             </li>
-            <li><a href="tools/timestamp.html">📆 Timestamp Converter</a> – Convert Unix timestamps to human-readable
+            <li><a href="tools/timestamp/">📆 Timestamp Converter</a> – Convert Unix timestamps to human-readable
                 format.
             </li>
-            <li><a href="tools/password.html">🔐 Password Generator</a> – Generate secure, random passwords.</li>
-            <li><a href="tools/base64.html">📎 Base64 Encoder/Decoder</a> – Encode or decode text with Base64.</li>
-            <li><a href="tools/url-encoder.html">📤 URL Encoder/Decoder</a> – Escape and unescape strings for safe URLs.
+            <li><a href="tools/password/">🔐 Password Generator</a> – Generate secure, random passwords.</li>
+            <li><a href="tools/base64/">📎 Base64 Encoder/Decoder</a> – Encode or decode text with Base64.</li>
+            <li><a href="tools/url-encoder/">📤 URL Encoder/Decoder</a> – Escape and unescape strings for safe URLs.
             </li>
-            <li><a href="tools/text-counter.html">🧮 Text Character Counter</a> – Count characters, words, and lines.
+            <li><a href="tools/text-counter/">🧮 Text Character Counter</a> – Count characters, words, and lines.
             </li>
-            <li><a href="tools/json.html">📦 JSON Formatter</a> – Pretty-print or minify your JSON data.</li>
-            <li><a href="tools/html-entities.html">🧾 HTML Entities Converter</a> – Encode/decode HTML entities.</li>
-            <li><a href="tools/qr.html">📸 QR / Barcode / Data Matrix Generator</a> – Generate QR codes, barcodes (EAN,
+            <li><a href="tools/json/">📦 JSON Formatter</a> – Pretty-print or minify your JSON data.</li>
+            <li><a href="tools/html-entities/">🧾 HTML Entities Converter</a> – Encode/decode HTML entities.</li>
+            <li><a href="tools/qr/">📸 QR / Barcode / Data Matrix Generator</a> – Generate QR codes, barcodes (EAN,
                 Code 39, Code 128), and 2D matrix codes like Aztec.
             </li>
-            <li><a href="tools/regex.html">📎 Regex Tester</a> – Test and debug regular expressions live.</li>
+            <li><a href="tools/regex/">📎 Regex Tester</a> – Test and debug regular expressions live.</li>
         </ul>
     </section>
     <section class="section" id="projects">
@@ -71,18 +102,18 @@
         <div class="project">
             <h3>🔐 Hash Tool</h3>
             <p>A web-based tool to generate file and text hashes using SHA-256, SHA-512, SHA-1, and MD5.</p>
-            <a class="btn" href="hash/hash.html">Try it</a>
+            <a class="btn" href="/hash/">Try it</a>
         </div>
         <div class="project">
             <h3>🛡️ Encrypt Tool</h3>
             <p>Encrypt and decrypt text using AES-GCM with password support – all done client-side.</p>
-            <a class="btn" href="encrypt/encrypt.html">Open</a>
+            <a class="btn" href="/encrypt/">Open</a>
         </div>
         <div class="project">
             <h3>⚙️ Script Hub</h3>
             <p>A growing collection of Bash, Windows, and Git productivity scripts designed to automate tasks and boost
                 workflow efficiency.</p>
-            <a class="btn" href="scripts/index.html">Browse Scripts</a>
+            <a class="btn" href="/scripts/">Browse Scripts</a>
         </div>
     </section>
     <section class="section" id="contact">
@@ -114,36 +145,26 @@
         closeIcon.style.display = isOpen ? 'block' : 'none';
     });
 </script>
+
+
 <script>
-    document.querySelectorAll("a[href$='.html']").forEach(link => {
-        link.addEventListener("click", function (e) {
-            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
-            e.preventDefault();
-            document.body.classList.remove("fade-in");
-            document.body.style.opacity = 0;
-            setTimeout(() => {
-                window.location.href = link.href;
-            }, 300);
-        });
-    });
-</script>
-<script>
-    document.querySelectorAll("a[href$='.html']").forEach(link => {
-        link.addEventListener("click", function (e) {
-            if (link.target === "_blank" || e.metaKey || e.ctrlKey) return;
-            e.preventDefault();
-            document.body.classList.remove("fade-in");
-            document.body.style.opacity = 0;
-            setTimeout(() => {
-                window.location.href = link.href;
-            }, 300);
-        });
-    });
-</script>
-<script>
-    window.addEventListener("load", () => {
-        requestAnimationFrame(() => {
-            document.body.classList.add("fade-in");
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("fade-in");
+        const anchors = document.querySelectorAll("a[href]");
+        anchors.forEach(anchor => {
+            const href = anchor.getAttribute("href");
+            const isInternalSection = href && (href.startsWith("#") || href.startsWith("/#"));
+            const isExternal = href && (href.startsWith("http") || anchor.target);
+            if (!isInternalSection && !isExternal) {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    document.body.classList.remove("fade-in");
+                    document.body.classList.add("fade-out");
+                    setTimeout(() => {
+                        window.location = anchor.href;
+                    }, 150);
+                });
+            }
         });
     });
 </script>
