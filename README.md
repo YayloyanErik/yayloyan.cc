@@ -64,5 +64,11 @@ yayloyan.cc
 
 ### 👨‍💻 Made by Yayloyan
 
-Feedback, suggestions, or script ideas?  
+Feedback, suggestions, or script ideas?
 Feel free to [email me](mailto:info@yayloyan.cc) or open an issue.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
