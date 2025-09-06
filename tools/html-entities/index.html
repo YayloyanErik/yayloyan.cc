@@ -6,39 +6,11 @@
     <title>HTML Entities Converter</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link href="/style.css" rel="stylesheet"/>
+    <link href="/styles/animations.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
           rel="stylesheet"/>
-    <style>body {
-        opacity: 0;
-    }</style>
-    <style>
-        body.fade-in {
-            animation: fadeIn 0.3s ease-in;
-        }
-
-        body.fade-out {
-            animation: fadeOut 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-    </style>
+    <meta name="description" content="Convert text to HTML entities and back with this simple tool."/>
 </head>
 <body class="fade-in">
 <header class="navbar">
@@ -69,9 +41,9 @@
 <footer class="footer">
     <p>© 2025 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
-        <a href="https://instagram.com/er313__" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank"><i class="fab fa-snapchat"></i></a>
-        <a href="https://github.com/yayloyanerik" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/er313__" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener noreferrer"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
     </div>
 </footer>
 <script>
@@ -100,67 +72,7 @@
         setTimeout(() => toast.classList.remove("show"), 2000);
     }
 </script>
-<script>
-    const hamburger = document.getElementById('hamburger-menu');
-    const navbar = document.getElementById('navbar');
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const closeIcon = document.getElementById('close-icon');
-
-    hamburger.addEventListener('click', () => {
-        navbar.classList.toggle('open');
-        const isOpen = navbar.classList.contains('open');
-        hamburgerIcon.style.display = isOpen ? 'none' : 'block';
-        closeIcon.style.display = isOpen ? 'block' : 'none';
-    });
-</script>
-<script>
-    window.addEventListener("load", () => {
-        requestAnimationFrame(() => {
-            document.body.classList.add("fade-in");
-        });
-    });
-</script>
-<script>
-    document.querySelectorAll("a[href^='/']:not([target])").forEach(link => {
-        link.addEventListener("click", function (e) {
-            if (e.metaKey || e.ctrlKey) return;
-            if (link.getAttribute("href").startsWith("#")) return;
-            e.preventDefault();
-            document.body.classList.remove("fade-in");
-            document.body.style.opacity = 0;
-            setTimeout(() => {
-                window.location.href = link.href;
-            }, 300);
-        });
-    });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.body.classList.add("fade-in");
-        const anchors = document.querySelectorAll("a[href]");
-        anchors.forEach(anchor => {
-            const href = anchor.getAttribute("href");
-            if (
-                href &&
-                !href.startsWith("http") &&
-                !href.startsWith("#") &&
-                !href.startsWith("/#") &&
-                !anchor.target &&
-                !href.includes(".pdf")
-            ) {
-                anchor.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    document.body.classList.remove("fade-in");
-                    document.body.classList.add("fade-out");
-                    setTimeout(() => {
-                        window.location = anchor.href;
-                    }, 300);
-                });
-            }
-        });
-    });
-</script>
+<script src="/scripts/common.js"></script>
 </body>
 
 </html>

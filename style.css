@@ -349,14 +349,3 @@ textarea {
     }
 }
 
-/* Smooth page transition */
-body {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-body.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
