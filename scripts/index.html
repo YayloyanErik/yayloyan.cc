@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
     <title>Script Hub – Yayloyan.cc</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link href="/style.css" rel="stylesheet"/>
-    <link href="/styles/animations.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
           rel="stylesheet"/>
-    <meta name="description" content="Browse a curated collection of Bash, PowerShell, Git, and productivity scripts."/>
 </head>
 <body class="fade-in">
 <header class="navbar">
@@ -19,9 +16,10 @@
     </div>
     <nav id="navbar">
         <ul>
-            <li><a href="../#tools">Tools</a></li>
-            <li><a href="../#projects">Projects</a></li>
-            <li><a href="../#contact">Contact</a></li>
+            <li><a href="/#tools">Tools</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/about/">Services</a></li>
+            <li><a href="/#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="hamburger" id="hamburger-menu">
@@ -29,81 +27,58 @@
         <i class="fas fa-times" id="close-icon"></i>
     </div>
 </header>
+<main class="main">
 <section class="section">
     <h2>Script Hub</h2>
     <p>A curated collection of automation scripts to save you time and effort.</p>
-    <h3>Bash Scripts 🐧</h3>
-    <ul>
-        <li>🧹 <a download="" href="bash/clean-temp.sh">Clean Temp Files</a> – Remove system cache/temp files</li>
-        <li>🔄 <a download="" href="bash/auto-backup.sh">Auto Backup</a> – Sync folders using rsync</li>
-        <li>📦 <a download="" href="bash/compress-logs.sh">Compress Logs</a> – Gzip logs older than 7 days</li>
-        <li>⏱️ <a download="" href="bash/schedule-shutdown.sh">Schedule Shutdown</a> – Power off after a delay</li>
+
+    <h3>Bash Scripts</h3>
+    <ul class="script-list">
+        <li><a download href="bash/clean-temp.sh">Clean Temp Files</a> – Remove system cache/temp files</li>
+        <li><a download href="bash/auto-backup.sh">Auto Backup</a> – Sync folders using rsync</li>
+        <li><a download href="bash/compress-logs.sh">Compress Logs</a> – Gzip logs older than 7 days</li>
+        <li><a download href="bash/schedule-shutdown.sh">Schedule Shutdown</a> – Power off after a delay</li>
     </ul>
-    <h3>PowerShell Scripts 🪟</h3>
-    <ul>
-        <li>🧽 <a download="" href="powershell/clear-windows-temp.ps1">Clear Windows Temp</a> – Delete temp files,
-            prefetch, and recycle bin
-        </li>
-        <li>🚀 <a download="" href="powershell/auto-launch-apps.ps1">Auto-Launch Apps</a> – Add an app to Windows startup
-        </li>
-        <li>📋 <a download="" href="powershell/log-install-events.ps1">Log Install Events</a> – Log app installation
-            history from event logs
-        </li>
-        <li>💡 <a download="" href="powershell/brightness-toggle.ps1">Toggle Brightness</a> – Toggle screen brightness
-            (concept)
-        </li>
+
+    <h3>PowerShell Scripts</h3>
+    <ul class="script-list">
+        <li><a download href="powershell/clear-windows-temp.ps1">Clear Windows Temp</a> – Delete temp files, prefetch, and recycle bin</li>
+        <li><a download href="powershell/auto-launch-apps.ps1">Auto-Launch Apps</a> – Add an app to Windows startup</li>
+        <li><a download href="powershell/log-install-events.ps1">Log Install Events</a> – Log app installation history from event logs</li>
+        <li><a download href="powershell/brightness-toggle.ps1">Toggle Brightness</a> – Toggle screen brightness (concept)</li>
     </ul>
-    <h3>Git / DevOps 🛠️</h3>
-    <ul>
-        <li>🔄 <a download="" href="git/auto-pull.sh">Auto Git Pull</a> – Pull latest changes in a repo on demand</li>
-        <li>📥 <a download="" href="git/clone-user-repos.sh">Clone GitHub Repos</a> – Clone all repos from a GitHub user
-            using API
-        </li>
-        <li>📝 <a download="" href="git/commit-template-guide.md">Commit Template Guide</a> – Format guide for writing
-            good commits
-        </li>
+
+    <h3>Git / DevOps</h3>
+    <ul class="script-list">
+        <li><a download href="git/auto-pull.sh">Auto Git Pull</a> – Pull latest changes in a repo on demand</li>
+        <li><a download href="git/clone-user-repos.sh">Clone GitHub Repos</a> – Clone all repos from a GitHub user using API</li>
+        <li><a download href="git/commit-template-guide.md">Commit Template Guide</a> – Format guide for writing good commits</li>
     </ul>
-    <h3>Web Dev Utilities 🌐</h3>
-    <ul>
-        <li>📉 <a download="" href="web-dev/minify-assets.js">Minify Assets</a> – Minify HTML/CSS/JS in a directory</li>
-        <li>🧼 <a download="" href="web-dev/remove-console-logs.js">Remove console.logs</a> – Strip all console logs from
-            a JS file
-        </li>
-        <li>🔍 <a download="" href="web-dev/check-broken-links.js">Check Broken Links</a> – Crawl a site to find broken
-            URLs
-        </li>
+
+    <h3>Web Dev Utilities</h3>
+    <ul class="script-list">
+        <li><a download href="web-dev/minify-assets.js">Minify Assets</a> – Minify HTML/CSS/JS in a directory</li>
+        <li><a download href="web-dev/remove-console-logs.js">Remove console.logs</a> – Strip all console logs from a JS file</li>
+        <li><a download href="web-dev/check-broken-links.js">Check Broken Links</a> – Crawl a site to find broken URLs</li>
     </ul>
-    <h3>Productivity Tools ⚡</h3>
-    <ul>
-        <li>⏳ <a download="" href="productivity/pomodoro-timer.py">Pomodoro Timer</a> – 25-minute terminal-based
-            productivity timer
-        </li>
-        <li>📲 <a download="" href="productivity/send-telegram-alert.py">Telegram Notifier</a> – Send messages using
-            Telegram Bot API
-        </li>
-        <li>📧 <a download="" href="productivity/send-email.py">Email Sender</a> – Send email using Gmail SMTP from
-            Python
-        </li>
-        <li>📅 <a download="" href="productivity/add-to-google-calendar.py">Add to Google Calendar</a> – Add an event
-            using Google Calendar API
-        </li>
+
+    <h3>Productivity Tools</h3>
+    <ul class="script-list">
+        <li><a download href="productivity/pomodoro-timer.py">Pomodoro Timer</a> – 25-minute terminal-based productivity timer</li>
+        <li><a download href="productivity/send-telegram-alert.py">Telegram Notifier</a> – Send messages using Telegram Bot API</li>
+        <li><a download href="productivity/send-email.py">Email Sender</a> – Send email using Gmail SMTP from Python</li>
+        <li><a download href="productivity/add-to-google-calendar.py">Add to Google Calendar</a> – Add an event using Google Calendar API</li>
     </ul>
 </section>
+</main>
 <footer class="footer">
-    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <p>© 2026 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
-        <a href="https://instagram.com/er313__" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-snapchat"></i>
-        </a>
-        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-        </a>
+        <a href="https://instagram.com/er313__" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
 </footer>
-<script src="/scripts/common.js"></script>
+<script src="/site.js"></script>
 </body>
-
 </html>

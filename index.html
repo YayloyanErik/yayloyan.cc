@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="Yayloyan.cc – A powerful collection of online tools including hash generators, QR creators, encryption tools, UUID, and developer scripts."
+    <meta content="Yayloyan.cc – Web design, development, payment integrations, Instagram creatives, plus free browser tools."
           name="description"/>
-    <meta content="hash generator, QR code, encrypt online, AES tool, script hub, base64, uuid, timestamp converter, password generator, online tools"
+    <meta content="web design, website development, payment integration, instagram posts, online tools, yayloyan"
           name="keywords"/>
     <title>Yayloyan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
           rel="stylesheet"/>
     <link href="/style.css" rel="stylesheet"/>
-    <link href="/styles/animations.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="fade-in">
@@ -20,10 +18,11 @@
     <div class="logo">
         <a href="/">Yayloyan</a>
     </div>
-    <nav class="nav-menu" id="navbar">
+    <nav id="navbar">
         <ul>
             <li><a href="/#tools">Tools</a></li>
             <li><a href="/#projects">Projects</a></li>
+            <li><a href="/about/">Services</a></li>
             <li><a href="/#contact">Contact</a></li>
         </ul>
     </nav>
@@ -34,73 +33,125 @@
 </header>
 <main class="main">
     <section class="welcome">
-        <h1>Welcome to Yayloyan.cc</h1>
-        <p>Minimalist. Clean. Powerful.</p>
-        <a class="btn" href="about/">Learn More</a>
+        <h1 class="brand">Yayloyan</h1>
+        <p>Clean digital work — sites, tools, and visuals.</p>
+        <a class="btn" href="/about/">View services</a>
     </section>
     <section class="section" id="goals">
         <h2>Goals</h2>
-        <p>Delivering clean, innovative, and efficient solutions that simplify complexity.</p>
+        <p>Deliver clean, practical solutions that simplify complexity — from design through deploy.</p>
     </section>
     <section class="section" id="tools">
         <h2>Tools</h2>
-        <p>Quick, simple, browser-based utilities for developers and power users.</p>
-        <ul>
-            <li><a href="tools/uuid/">🆔 UUID Generator</a> – Generate UUIDs (v1, v4, v5), with name-based and bulk
-                options.
-            </li>
-            <li><a href="tools/timestamp/">📆 Timestamp Converter</a> – Convert Unix timestamps to human-readable
-                format.
-            </li>
-            <li><a href="tools/password/">🔐 Password Generator</a> – Generate secure, random passwords.</li>
-            <li><a href="tools/base64/">📎 Base64 Encoder/Decoder</a> – Encode or decode text with Base64.</li>
-            <li><a href="tools/url-encoder/">📤 URL Encoder/Decoder</a> – Escape and unescape strings for safe URLs.
-            </li>
-            <li><a href="tools/text-counter/">🧮 Text Character Counter</a> – Count characters, words, and lines.
-            </li>
-            <li><a href="tools/json/">📦 JSON Formatter</a> – Pretty-print or minify your JSON data.</li>
-            <li><a href="tools/html-entities/">🧾 HTML Entities Converter</a> – Encode/decode HTML entities.</li>
-            <li><a href="tools/qr/">📸 QR / Barcode / Data Matrix Generator</a> – Generate QR codes, barcodes (EAN,
-                Code 39, Code 128), and 2D matrix codes like Aztec.
-            </li>
-            <li><a href="tools/regex/">📎 Regex Tester</a> – Test and debug regular expressions live.</li>
-        </ul>
+        <p>Quick, browser-based utilities for developers and power users.</p>
+        <div class="tool-grid">
+            <a class="tool-item" href="tools/uuid/">
+                <i class="fas fa-fingerprint"></i>
+                <div>
+                    <strong>UUID Generator</strong>
+                    <span>Generate UUIDs (v1, v4, v5), name-based and bulk.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/timestamp/">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <strong>Timestamp Converter</strong>
+                    <span>Convert Unix timestamps to human-readable format.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/password/">
+                <i class="fas fa-key"></i>
+                <div>
+                    <strong>Password Generator</strong>
+                    <span>Generate secure, random passwords.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/base64/">
+                <i class="fas fa-code"></i>
+                <div>
+                    <strong>Base64 Encoder/Decoder</strong>
+                    <span>Encode or decode text with Base64.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/url-encoder/">
+                <i class="fas fa-link"></i>
+                <div>
+                    <strong>URL Encoder/Decoder</strong>
+                    <span>Escape and unescape strings for safe URLs.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/text-counter/">
+                <i class="fas fa-calculator"></i>
+                <div>
+                    <strong>Text Character Counter</strong>
+                    <span>Count characters, words, and lines.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/json/">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                    <strong>JSON Formatter</strong>
+                    <span>Pretty-print or minify your JSON data.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/html-entities/">
+                <i class="fas fa-file-code"></i>
+                <div>
+                    <strong>HTML Entities Converter</strong>
+                    <span>Encode and decode HTML entities.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/qr/">
+                <i class="fas fa-qrcode"></i>
+                <div>
+                    <strong>QR / Barcode Generator</strong>
+                    <span>QR codes, barcodes, and 2D matrix codes.</span>
+                </div>
+            </a>
+            <a class="tool-item" href="tools/regex/">
+                <i class="fas fa-asterisk"></i>
+                <div>
+                    <strong>Regex Tester</strong>
+                    <span>Test and debug regular expressions live.</span>
+                </div>
+            </a>
+        </div>
     </section>
     <section class="section" id="projects">
         <h2>Projects</h2>
         <div class="project">
-            <h3>🔐 Hash Tool</h3>
-            <p>A web-based tool to generate file and text hashes using SHA-256, SHA-512, SHA-1, and MD5.</p>
+            <h3>Hash Tool</h3>
+            <p>Generate file and text hashes using SHA-256, SHA-512, SHA-1, and MD5.</p>
             <a class="btn" href="/hash/">Try it</a>
         </div>
         <div class="project">
-            <h3>🛡️ Encrypt Tool</h3>
-            <p>Encrypt and decrypt text using AES-GCM with password support – all done client-side.</p>
+            <h3>Encrypt Tool</h3>
+            <p>Encrypt and decrypt text using AES-GCM with password support — all client-side.</p>
             <a class="btn" href="/encrypt/">Open</a>
         </div>
         <div class="project">
-            <h3>⚙️ Script Hub</h3>
-            <p>A growing collection of Bash, Windows, and Git productivity scripts designed to automate tasks and boost
-                workflow efficiency.</p>
+            <h3>Script Hub</h3>
+            <p>Bash, Windows, and Git productivity scripts to automate tasks and speed up workflows.</p>
             <a class="btn" href="/scripts/">Browse Scripts</a>
         </div>
     </section>
     <section class="section" id="contact">
         <h2>Contact</h2>
         <p>
-            Got a bug to report, a feature idea, or a script suggestion?<br/>
-            Email me at: <a href="mailto:info@yayloyan.cc">info@yayloyan.cc</a>
+            Questions, ideas, or a project brief?<br/>
+            Email <a href="mailto:info@yayloyan.cc">info@yayloyan.cc</a>
+            or message on <a href="https://instagram.com/er313__" target="_blank" rel="noopener">Instagram</a>.
         </p>
     </section>
 </main>
 <footer class="footer">
-    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <p>© 2026 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
-        <a href="https://instagram.com/er313__" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener noreferrer"><i class="fab fa-snapchat"></i></a>
-        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/er313__" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
 </footer>
-<script src="/scripts/common.js"></script>
+<script src="/site.js"></script>
 </body>
 </html>

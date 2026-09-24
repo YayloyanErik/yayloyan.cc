@@ -9,17 +9,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link href="/style.css" rel="stylesheet"/>
-    <link href="/styles/animations.css" rel="stylesheet"/>
-    <meta name="description" content="Test and debug regular expressions in real time."/>
 </head>
 <body class="fade-in">
 <header class="navbar">
     <div class="logo"><a href="/">Yayloyan</a></div>
     <nav id="navbar">
         <ul>
-            <li><a href="../#tools">Tools</a></li>
-            <li><a href="../#projects">Projects</a></li>
-            <li><a href="../#contact">Contact</a></li>
+            <li><a href="/#tools">Tools</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/about/">Services</a></li>
+            <li><a href="/#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="hamburger" id="hamburger-menu">
@@ -39,15 +38,15 @@
     </section>
 </main>
 <footer class="footer">
-    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <p>© 2026 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
-        <a href="https://instagram.com/er313__" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener noreferrer"><i class="fab fa-snapchat"></i></a>
-        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/er313__" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
 </footer>
 <script>
-    function testRegex() {
+function testRegex() {
         const text = document.getElementById('text').value;
         const pattern = document.getElementById('pattern').value;
         try {
@@ -76,7 +75,7 @@
         setTimeout(() => toast.classList.remove("show"), 2000);
     }
 </script>
-<script src="/scripts/common.js"></script>
+<script src="/site.js"></script>
 </body>
 
 </html>

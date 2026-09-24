@@ -8,9 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
           rel="stylesheet"/>
     <link href="/style.css" rel="stylesheet"/>
-    <link href="/styles/animations.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
-    <meta name="description" content="Generate SHA-256, SHA-512, SHA-1, or MD5 hashes for files and text."/>
 </head>
 <body class="fade-in">
 <header class="navbar">
@@ -19,9 +17,10 @@
     </div>
     <nav id="navbar">
         <ul>
-            <li><a href="../#tools">Tools</a></li>
-            <li><a href="../#projects">Projects</a></li>
-            <li><a href="../#contact">Contact</a></li>
+            <li><a href="/#tools">Tools</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/about/">Services</a></li>
+            <li><a href="/#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="hamburger" id="hamburger-menu">
@@ -55,25 +54,19 @@
     </section>
 </main>
 <footer class="footer">
-    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <p>© 2026 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
-        <a href="https://instagram.com/er313__" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-snapchat"></i>
-        </a>
-        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-        </a>
+        <a href="https://instagram.com/er313__" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
 </footer>
 <!-- SparkMD5 for MD5 hashing -->
+<div class="toast" id="toast">Copied to clipboard!</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.2/spark-md5.min.js"></script>
 <script src="hash.js"></script>
-<div class="toast" id="toast">Copied to clipboard!</div>
 <script>
-    function copyToClipboard(id) {
+function copyToClipboard(id) {
         const el = document.getElementById(id);
         if (!el || !el.innerText.trim()) return;
         navigator.clipboard.writeText(el.innerText).then(() => {
@@ -84,7 +77,7 @@
         });
     }
 </script>
-<script src="/scripts/common.js"></script>
+<script src="/site.js"></script>
 </body>
 
 </html>

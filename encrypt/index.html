@@ -8,9 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Rubik&amp;display=swap"
           rel="stylesheet"/>
     <link href="/style.css" rel="stylesheet"/>
-    <link href="/styles/animations.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
-    <meta name="description" content="Encrypt and decrypt text in your browser using AES-GCM and a password."/>
 </head>
 <body class="fade-in">
 <header class="navbar">
@@ -19,9 +17,10 @@
     </div>
     <nav id="navbar">
         <ul>
-            <li><a href="../#tools">Tools</a></li>
-            <li><a href="../#projects">Projects</a></li>
-            <li><a href="../#contact">Contact</a></li>
+            <li><a href="/#tools">Tools</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/about/">Services</a></li>
+            <li><a href="/#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="hamburger" id="hamburger-menu">
@@ -44,23 +43,17 @@
     </section>
 </main>
 <footer class="footer">
-    <p>© 2025 Yayloyan.cc — All rights reserved</p>
+    <p>© 2026 Yayloyan.cc — All rights reserved</p>
     <div class="social-links">
-        <a href="https://instagram.com/er313__" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-snapchat"></i>
-        </a>
-        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-        </a>
+        <a href="https://instagram.com/er313__" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://snapchat.com/add/e_yayloyan313" target="_blank" rel="noopener" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://github.com/yayloyanerik" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
 </footer>
-<script src="encrypt.js"></script>
 <div class="toast" id="toast">Copied to clipboard!</div>
+<script src="encrypt.js"></script>
 <script>
-    function copyToClipboard(id) {
+function copyToClipboard(id) {
         const el = document.getElementById(id);
         if (!el || !el.innerText.trim()) return;
         navigator.clipboard.writeText(el.innerText).then(() => {
@@ -71,7 +64,7 @@
         });
     }
 </script>
-<script src="/scripts/common.js"></script>
+<script src="/site.js"></script>
 </body>
 
 </html>
